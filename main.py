@@ -1,3 +1,4 @@
+import random
 import board_game_rl as bgrl
 
 # Create a game board.
@@ -26,3 +27,8 @@ while not done:
     env.render()
 
 print(f"The winner is {env.winner}")
+
+
+
+
+
