@@ -3,8 +3,7 @@ import board_game_rl as bgrl
 # Create a game board.
 board = bgrl.GameEnv(bgrl.tictactoe_logic)
 
-# Simulate a random game.
-# bgrl.play_simulated_random_game(board, render=True)
+# Simulate a random game with the GameEnv class.
 
 # Create an agent with a random policy.
 agentA = bgrl.Agent(bgrl.Player.A, bgrl.random_policy)

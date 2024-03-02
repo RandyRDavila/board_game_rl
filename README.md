@@ -49,6 +49,49 @@ agentB = Agent(Player.B, random_policy)
 game_board.play_game(agentA, agentB, render=True)
 ```
 
+To play a game as if it were a reinforcement learning environment, see the following code:
+
+```python
+import board_game_rl as bgrl
+
+# Create a game board.
+board = bgrl.GameEnv(bgrl.tictactoe_logic)
+
+# Simulate a random game with the GameEnv class.
+
+# Create an agent with a random policy.
+agentA = bgrl.Agent(bgrl.Player.A, bgrl.random_policy)
+agentB = bgrl.Agent(bgrl.Player.B, bgrl.random_policy)
+
+# Initialize the game play.
+state, done = board.reset()
+board.render()
+
+# Play a game until one of the players wins.
+while not done:
+    moveA = agentA(board.game_board)
+    state, reward, done = board.step(bgrl.Player.A, moveA)
+    print(f"agentA Reward: {reward}")
+    board.render()
+    if done:
+        break
+    moveB = agentB(board.game_board)
+    state, reward, done = board.step(bgrl.Player.B, moveB)
+    print(f"agentB Reward: {reward}")
+    board.render()
+
+print(f"The winner is {board.winner}.")
+```
+
+## Features
+
+* Flexible game board implementation.
+* Example game logic for Tic-Tac-Toe.
+* Support for custom policies and agents.
+
+## Author
+Randy R. Davila, PhD.
+
 ## License
 
 `board_game_rl` is licensed under the MIT License.
