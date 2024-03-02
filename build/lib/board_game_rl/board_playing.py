@@ -1,5 +1,5 @@
-from .board_classes import Player, Agent
-from .example_policies import random_policy
+from board_classes import Player, Agent
+from example_policies import random_policy
 import numpy as np
 
 def play_simulated_random_game(board:np.ndarray, render=False) -> None:
