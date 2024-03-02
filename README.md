@@ -10,11 +10,22 @@
 
 ## Installation
 
-Install `board_game_rl` using pip:
+Clone or Download the Repository: First, you need to clone your repository or download the source code as a ZIP archive and extract it.
+
+If cloning:
 
 ```bash
-pip install board_game_rl
+git clone https://github.com/YourUsername/board_game_rl.git
+cd board_game_rl
 ```
+
+Install Using pip: Inside the root directory of the project (where setup.py is located), run:
+
+```bash
+pip install .
+```
+
+This command tells `pip` to install the package from the current directory. It automatically manages the build and installation process.
 
 Ensure you have Python 3.6 or newer installed.
 
