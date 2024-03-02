@@ -69,17 +69,18 @@ env.render()
 
 while not done:
     moveA = agentA(env.game_board)
-    state, reward, done = env.step(bgrl.Player.A, moveA)
+    state, reward, done = env.step(agentA, moveA)
     print(f"agentA Reward: {reward}")
     env.render()
     if done:
         break
     moveB = agentB(env.game_board)
-    state, reward, done = env.step(bgrl.Player.B, moveB)
+    state, reward, done = env.step(agentB, moveB)
     print(f"agentB Reward: {reward}")
     env.render()
 
 print(f"The winner is {env.winner}")
+
 ```
 
 ## Features
