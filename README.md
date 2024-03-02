@@ -15,7 +15,7 @@ Clone or Download the Repository: First, you need to clone your repository or do
 If cloning:
 
 ```bash
-git clone https://github.com/YourUsername/board_game_rl.git
+git clone https://github.com/RandyRDavila/board_game_rl.git
 cd board_game_rl
 ```
 
