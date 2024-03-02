@@ -1,5 +1,5 @@
 import random
-from board_classes import Player
+from board_game_rl.board_classes import Player
 import numpy as np
 
 def random_policy(board: np.ndarray, player: Player) -> tuple[int, int]:

@@ -1,6 +1,6 @@
 import numpy as np
 from tabulate import tabulate
-from board_classes import Player
+from board_game_rl.board_classes import Player
 
 def tictactoe_play_logic(board: np.ndarray, player: Player, move: tuple, mutate=True):
     """
