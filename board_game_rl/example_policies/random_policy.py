@@ -1,8 +1,8 @@
 import random
-from board_game_rl.board_classes import Player
+from board_game_rl.board_classes import Player, GameBoard
 import numpy as np
 
-def random_policy(board: np.ndarray, player: Player) -> tuple[int, int]:
+def random_policy(board: GameBoard, player: Player) -> tuple[int, int]:
     """
     A random policy that takes a board and a player and returns a random move.
 

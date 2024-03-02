@@ -1,8 +1,8 @@
 import numpy as np
 from tabulate import tabulate
-from board_game_rl.board_classes import Player
+from board_game_rl.board_classes import Player, GameBoard
 
-def tictactoe_play_logic(board: np.ndarray, player: Player, move: tuple, mutate=True):
+def tictactoe_play_logic(board, player: Player, move: tuple, mutate=True):
     """
     The logic of playing a move in TicTacToe. The function takes a board, a player, a move, and a boolean mutate.
     If mutate is False, the function returns a new board with the move played. If mutate is True, the function
@@ -41,7 +41,7 @@ def tictactoe_play_logic(board: np.ndarray, player: Player, move: tuple, mutate=
         else:
             return None
 
-def tictactoe_board_valid_moves(board: np.ndarray, player=None) -> list[tuple[int, int]]:
+def tictactoe_board_valid_moves(board, player=None) -> list[tuple[int, int]]:
     """
     The logic of finding the valid moves in TicTacToe. The function takes a board and a player and returns a list
     of valid moves.
@@ -64,7 +64,7 @@ def tictactoe_board_valid_moves(board: np.ndarray, player=None) -> list[tuple[in
     """
     return [(i, j) for i in range(3) for j in range(3) if board[i, j] == Player.none.value]
 
-def tictactoe_render(board: np.ndarray):
+def tictactoe_render(board):
     """
     The logic of rendering the TicTacToe board. The function takes a board and prints the board.
 
@@ -93,7 +93,7 @@ def tictactoe_render(board: np.ndarray):
                 rendered_board[ii, jj] = "O"
     print(tabulate(rendered_board, tablefmt="fancy_grid"))
 
-def tictactoe_winner(board: np.ndarray) -> Player:
+def tictactoe_winner(board) -> Player:
     """
     The logic of finding the winner in TicTacToe. The function takes a board and returns the winner.
 
@@ -112,7 +112,7 @@ def tictactoe_winner(board: np.ndarray) -> Player:
     Player.none
     ```
     """
-    def tictactoe_win(played_board: np.ndarray, player: Player):
+    def tictactoe_win(played_board, player: Player):
         for i in range(3):
             if sum(played_board[i, :]) == 3*player.value:
                 return True
