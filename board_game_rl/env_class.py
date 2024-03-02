@@ -11,6 +11,7 @@ class GameEnv:
         self.game_board = GameBoard(game_logic)
         self.done = False
         self.winner = Player.none
+        self.observations = []
 
     def reset(self):
         """
@@ -22,6 +23,7 @@ class GameEnv:
         self.game_board.reset()
         self.done = False
         self.winner = Player.none
+        self.observations = [self.game_board]
         return self.game_board, self.done
 
     def step(self, player, move):
@@ -65,9 +67,15 @@ class GameEnv:
         if self.winner == player:
             return 1  # Reward for winning.
         elif self.winner == Player.none:
-            return 0.5  # Reward for a draw.
+            return 0  # Reward for a draw.
         else:
             return -1  # Penalty for losing.
+
+    def revert(self):
+        """
+        Revert the environment to the previous state.
+        """
+        self.observations = self.observations[:-1]
 
     def render(self):
         """
