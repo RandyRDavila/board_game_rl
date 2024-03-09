@@ -1,34 +1,31 @@
-import random
-import board_game_rl as bgrl
+from board_game_rl.board import BoardGame
+from board_game_rl.agent_players import RandomPlayer
+from board_game_rl.policy import minimax_policy
+from board_game_rl.player import Player
+from board_game_rl.simulations import simulate_game
+from board_game_rl.tictactoe_logic import *
 
-# Create a game board.
-env = bgrl.GameEnv(bgrl.tictactoe_logic)
+# Assuming the Player and BoardGame classes are already defined as previously discussed
+# and TicTacToe logic functions are defined as per the last instructions
 
-# Simulate a random game with the GameEnv class.
-
-# Create an agent with a random policy.
-agentA = bgrl.Agent(bgrl.Player.A, bgrl.random_policy)
-agentB = bgrl.Agent(bgrl.Player.B, bgrl.random_policy)
-
-# Play a game between two agents.
-state, done = env.reset()
-env.render()
-
-while not done:
-    moveA = agentA(env.game_board)
-    state, reward, done = env.step(agentA, moveA)
-    print(f"agentA Reward: {reward}")
-    env.render()
-    if done:
-        break
-    moveB = agentB(env.game_board)
-    state, reward, done = env.step(agentB, moveB)
-    print(f"agentB Reward: {reward}")
-    env.render()
-
-print(f"The winner is {env.winner}")
+# Create two players with random policies
+player1 = RandomPlayer(player_id=1)
+player2 = RandomPlayer(player_id=2)
 
 
+# Initialize the TicTacToe game with the defined logic functions and players
+env = BoardGame(
+    game_over_logic=game_over_tictactoe_logic,
+    make_move_logic=make_move_tictactoe_logic,
+    get_winner_logic=get_winner_tictactoe_logic,
+    initialize_board_state=initialize_tictactoe_board_state_logic,
+    valid_moves_logic=valid_moves_tictactoe_logic,
+    players=[player1, player2]
+)
+
+
+
+simulate_game(env, player1, player2)
 
 
 
