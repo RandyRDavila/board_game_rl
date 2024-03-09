@@ -1,6 +1,7 @@
 import random
 import copy
 
+
 def random_policy(board_state, valid_moves):
     """
     Selects a move randomly from the list of valid moves.
