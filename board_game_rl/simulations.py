@@ -1,4 +1,6 @@
 
+__all__ = ["simulate_game"]
+
 def simulate_game(env, player1, player2):
     # Play the game until it's over.
     while not env.is_game_over():

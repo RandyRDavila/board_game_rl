@@ -1,5 +1,7 @@
 import random
 
+__all__ = ["Player"]
+
 class Player:
     def __init__(self, player_id, policy=None):
         self.player_id = player_id

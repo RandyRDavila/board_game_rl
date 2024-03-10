@@ -1,5 +1,7 @@
 import copy
 
+__all__ = ['BoardGame']
+
 class BoardGame:
     def __init__(
             self,
